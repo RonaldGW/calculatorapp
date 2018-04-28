@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+          <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+
+    </head>
+    <body>
+        <div class="container">
+  <h2>Math Notebook</h2>
+  <ul class="nav nav-tabs">
+    <li  class="active" ><a href="#">calulator</a></li>
+    <li><a href="files.html">files</a></li>
+    <li width: 34%><a href="filecombind.html">notes</a></li>
+            </ul>
+            <p>input file name</p>
+    <textarea id="file_name"></textarea>
+  <form id=cal>
+      <textarea id="caltextbox" disabled cols="kook"></textarea><br>
+      <input type =button name=btn9 value="9"onclick="quest(btn9.value)">
+      <input type =button name=btn8 value="8"onclick="quest(btn8.value)">
+      <input type =button name=btn7 value="7"onclick="quest(btn7.value)">
+      <input type =button name=btn6 value="6"onclick="quest(btn6.value)">
+      <input type =button name=btn5 value="5"onclick="quest(btn5.value)">
+      <input type =button name=btn4 value="4"onclick="quest(btn4.value)">
+      <input type =button name=btn3 value="3"onclick="quest(btn3.value)">
+      <input type =button name=btn2 value="2"onclick="quest(btn2.value)">
+      <input type =button name=btn1 value="1"onclick="quest(btn1.value)">
+      <input type =button name=btn0 value="0"onclick="quest(btn0.value)">
+      <input type =button name=btn+ value="+"onclick="blackop(1)">
+      <input type =button name=btn- value="-"onclick="blackop(2)">
+      <input type =button name=btn/ value="/"onclick="blackop(4)">
+      <input type =button name=btn* value="*"onclick="blackop(3)">
+      <input type =button name=btn** value="x^n"onclick="blackop(5)">
+      <input type=button  value="backspace" onclick=backup()>
+      <input type=button id="submit" value="submit" onclick="dostuff()" >
+      <input type=button name=clear value="clear" onclick="blackop(6)">
+    </form>
+    <textarea id="ta2" rows="7" cols="7"></textarea>
+    <button id="saveme" onclick="save()">save</button>
+    <button onclick="cleartext()">clear text</button>
+    <script>
+    function cleartext(){
+      document.getElementById("ta2").value=""  
+    }
+    function setup(){
+        x=localStorage.getItem("pl9001")
+        document.getElementById("ta2").value=localStorage.getItem(x);
+        document.getElementById("file_name").value=x
+}
+     var form = document.getElementById("cal");
+    function quest(x){
+        document.getElementById("caltextbox").value+=x;
+    }
+    function blackop(x){
+        if(x==6){
+        document.getElementById("caltextbox").value=""
+        }
+        if(x==1){
+            document.getElementById("caltextbox").value+="+"
+        }
+        if(x==2){
+            document.getElementById("caltextbox").value+="-"
+        }
+        if(x==3){
+            document.getElementById("caltextbox").value+="*"
+        }
+        if(x==4){
+            document.getElementById("caltextbox").value+="/"
+        }
+        if(x==5){
+                document.getElementById("caltextbox").value+="**"
+        }
+    }
+    function backup(){
+        x=document.getElementById("caltextbox").value.length;
+    document.getElementById("caltextbox").value=document.getElementById("caltextbox").value.slice(0,x-1);
+    }
+    function dostuff(){
+        y=document.getElementById("caltextbox").value;
+        x=eval(y);
+        document.getElementById("caltextbox").value=x;
+        document.getElementById("ta2").value+=y+"="+x+"\n"; localStorage.setItem(document.getElementById("file_name").value,document.getElementById("ta2").value);
+        localStorage.setItem("l9001",document.getElementById("ta2").value);}
+    function save(){
+        x= document.getElementById("file_name").value
+        y= document.getElementById("ta2").value
+        localStorage.setItem(x,y);
+    }
+setup()
+        </script>
+    </body>
+</html>

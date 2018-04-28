@@ -1,0 +1,64 @@
+<html>
+<head>
+
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+    </head>
+    <body id="body">
+        <div class="container">
+    <h2>Math Notebook</h2>
+  <ul class="nav nav-tabs">
+    <li><a href="index.html">calulator</a></li>
+    <li class="active"><a href="#">files</a></li>
+    <li><a href="filecombind.html">notes</a></li>
+  </ul>
+            <p>to open file you want to click drop box below then push the go button then click on the calulator tab</p><br>
+   
+            <select id="dropdown">
+
+</select>
+    <button onclick="goto()">GO!!</button>
+            <p>to remove a files click from the drop boxs below and push the remove button</p>
+            <select id="dropdown2">
+</select>
+            <button onclick="remover()">remove</button>
+<script>
+    function remover(){
+        x=document.getElementById("dropdown2").value;
+        localStorage.removeItem(x);
+            location.reload();
+    }
+        function findfiles2(){
+    for(var key in localStorage){
+        if(localStorage.getItem(key)!=null){
+   console.log(localStorage.getItem(key));
+    var para = document.createElement("option");//amke a para elemwnt
+    para.text=key;
+    document.getElementById("dropdown2").add(para);}}}
+    function findfiles(){
+    for(var key in localStorage){
+        if(localStorage.getItem(key)!=null){
+   console.log(localStorage.getItem(key));
+    var para = document.createElement("option");//amke a para elemwnt
+    para.text=key;
+    document.getElementById("dropdown").add(para);
+          
+        
+        }}
+}
+function goto(){
+    localStorage.setItem("pl9001",document.getElementById("dropdown").value);
+    console.log(localStorage.getItem("pl9001"));
+}    
+ findfiles(); 
+             findfiles2(); 
+            </script>
+            </body>
+
+
+</html>

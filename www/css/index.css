@@ -1,0 +1,58 @@
+input{
+    margin: 2%;
+    width: 70px;
+    height: 30px;
+    border-style: groove;
+    align-content: center;
+    background-color: lightgray;
+    font-size: 10px;
+}
+form{
+    align-content: center;
+
+    
+}
+textarea{
+    width: 100%;
+    height: auto;
+    align-content: center;
+    backface-visibility: visible;
+background: none;
+   color: white;
+    
+    
+}
+body{
+height: 100%; 
+width:100%;
+    margin: 0%;
+    background-image: url(https://png.pngtree.com/thumb_back/fw800/back_pic/04/20/51/21582dd2dca8375.jpg);
+    padding: 0px;
+    text-align: center;
+}
+li{
+   
+    width: 33%;
+    
+}
+
+ul{
+    width: 100%;
+    margin: 0px;
+}
+.container{
+    margin: 0px;
+    padding:0px;
+   
+}
+.active{
+    width:34%;
+    background-color: darkgray;
+    color: whitesmoke;
+}
+p{
+    color: white;
+}
+h2{
+    color:ghostwhite;
+}
